@@ -1,78 +1,56 @@
-<?php
-session_start();
-include("db.php");
-if($_POST['exit'] == 'Выход')
-{
-	$_SESSION = array();
-	session_destroy();
-}
+<?php 
 
-include("handle_logout.php");
-
-if (!isset($_SESSION['uid'])) //если id пользователя нет то предоставить ему поле авторизации
+if($_POST['form']=="nav")
 {
-	include("log_out.php");
-}
-else // если id есть то загрузить главную страницу
-{
+	if($_POST['main'])
+		header("Location: http://futucar/main.php");
+	elseif($_POST['rent'])
+		header("Location: http://futucar/rent.php");
+	elseif($_POST['сars'])
+		header("Location: http://futucar/cars.php");
+	elseif($_POST['guest_page'])
+		header("Location: http://futucar/guest_page.php");
 	
-//include("db.php");
-//unset($basaDB);
-$basaDB = new DB();
-$basaDB->get_request("SELECT `users`.`name` FROM `users` WHERE `users`.`id` = '".$_SESSION['uid']."'");
 
-$user_name = $basaDB->unpacking();
-
-unset($basaDB);
-
-//mysqli_num_rows($result); // количество записей которое вернул SELCT
+}
+elseif($_POST['form'] == "login")
+{
+	header("Location: http://futucar/login.php");
+}
+else
+{
+	header("Location: http://futucar/main.php");
+}
+echo "далеко зашел";
 
 /*
-•	Запрос на выборку информации, отсортированной по возрастанию или убыванию цены (даты или что-то иного); // cars.price_to_min
-•	Запрос на выборку с критерием отбора; cars.id_cities
-•	Запрос на обновление данных; //users.name
-•	Запрос на добавление данных; new user
-•	Многотабличный запрос.  //user trips cars
+require_once('functions.php');
+
+
+$title = "";
+
+
+
+if($_POST['main'])
+{	
+	header("Location: http://futucar/main.php");
+	$title = 'Главная';
+	$page_content = renderTemplate('main.php', ['name' => 'r']);
+}
+elseif($_POST['rent'])
+{
+	$title = 'Главная';
+	$page_content = renderTemplate('main.php', ['name' => 'r']);
+}
+
+
+
+
+$layout_content = renderTemplate('layout.php',['title' => $title,'content'=>$page_content]);
+print($layout_content);
+print($_POST['main']);
+var_dump($_REQUEST);
 
 */
+
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>
-		Lab3
-	</title>
-	<style type="">
-		.menu {
-			  width: 15em;
-			  border: 1px solid #333;
-			  box-shadow: 8px 8px 5px #444;
-			  padding: 8px 12px;
-			  background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
-			}
-	</style>
-</head>
-<body bgcolor="#D8BFD8">
-
-	<div align="Right">
-		<form action="index.php" method="post"><input type="submit" name="exit" value="Выход"></form>
-	</div>
-	<div style="font-size: 30px; padding-left: 30px; color: #32CD32;">
-		<b><?php echo "Привет, ".$user_name['name'];?></b>
-	</div>
-	<br>
-	<div>
-	<div class="menu">
-		<a href="show_car.php">Посмотреть машины</a>
-	</div>
-	<div class="menu">
-		<a href="change_name.php">Изменить свое имя</a>
-	</div>
-	<div class="menu">
-		<a href="show_trips.php">Посмотреть поездки</a>
-	
-
-</body>
-</html>
-
-<?php  }?>

@@ -1,0 +1,26 @@
+<?=$p ?>
+<div style="padding-top: 100px;">
+	<form action="../login.php" method="post">
+		<table align="center">
+		<tr>
+			<td>Логин:</td>
+			<td><input type="text" name="login"></td>
+		</tr><br>
+		<tr>
+			<td>Пароль:</td>
+			<td><input type="text" name="password"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right"><input type="submit" name="autorization" value="Вход"></td>
+		</tr>
+		</table>
+		 <br>
+		
+	</form>
+	<div align="center"><form action="creat_new_account.php" method="post"><input type="submit" name="regs" value="Зарегестрироваться"></form></div>
+	<div>
+		<?php foreach($error_list as $er): ?>
+			<div><?=$er?></div>
+		<?php endforeach; ?>
+	</div>
+</div>
