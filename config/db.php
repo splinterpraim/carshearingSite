@@ -1,5 +1,10 @@
 <?php
 
+$DATABASE_URL = '127.0.0.1';
+$USER = 'mysql';
+$USER_PASSWORD = 'mysql';
+$DATABASE = 'carsharing';
+/*
 class DB
 {
 	private $connection;
@@ -23,6 +28,11 @@ class DB
 	{
 		$this->result = mysqli_query($this->connection, $sql_req);
 	}
+	public function get_lasy_id($sql_req)
+	{
+		$this->result = mysqli_query($this->connection, $sql_req);
+	}
+	
 
 	public function unpacking()
 	{
@@ -33,5 +43,5 @@ class DB
 }
 
 
-
+*/
 

@@ -8,6 +8,7 @@ function renderTemplate($template, $param = false) {
 
     include($template);
     $p = (string) ob_get_contents();
+  
    // ob_end_flush();//ob_clean(); //ob_end_clean
     return (string) $p;
     

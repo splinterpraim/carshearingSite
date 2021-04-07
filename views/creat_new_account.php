@@ -13,24 +13,24 @@
 				</tr>
 				<tr>
 					<td>Отчество:</td>
-					<td><input  type="text" name="fathname" value= "<?=$fathname;?>" ></td>
+					<td><input type="text" name="fathname" value= "<?=$fathname;?>" ></td>
 				</tr>
 				<tr>
 					<td >Паспорт (серия/номер):</td>
-					<td><input style="<?=$check['pasport'];?>" type="text" name="pasport"  value= "<?=$pasport;?>"></td>
+					<td><input class="<?=$check['pasport'];?>" type="text" name="pasport"  value= "<?=$pasport;?>"></td>
 				</tr>
 				<tr>
 					<td>Номер водительского<br> удостоверения:</td>
-					<td><input style="<?=$check['autopasport'];?>" type="text" name="autopasport" value="<?=$autopasport;?>" ></td>
+					<td><input class="<?=$check['autopasport'];?>" type="text" name="autopasport" value="<?=$autopasport;?>" ></td>
 				</tr>
 				<tr>
 					
 					<td>Номер кредитной карты:</td>
-					<td><input  style="<?=$check['credit_cart'];?>" type="text" name="credit_cart"  value="<?=$credit_cart;?>" ></td>
+					<td><input  class="<?=$check['credit_cart'];?>" type="text" name="credit_cart"  value="<?=$credit_cart;?>" ></td>
 				</tr>
 				<tr>
 					<td>Номер телефона:</td>
-					<td><input style="<?=$check['phone'];?>" type="text" name="phone" value="<?=$phone;?>" ></td>
+					<td><input class="<?=$check['phone'];?>" type="text" name="phone" value="<?=$phone;?>" ></td>
 				</tr>
 				<tr>
 					<td>Адрес:</td>
@@ -52,13 +52,9 @@
 
 
 
-	<!-- <div <?php if(($Good==false)and($start==false)){?>style="border: 4px solid #20B2AA; width: 300px; font-size: 20px;"<?php }?>>
+	<div <?php if(($Good==false)and($start==false)){?>style="border: 4px solid #20B2AA; width: 300px; font-size: 20px;"<?php }?>>
 		<?php echo '<b>'.$errors.'<b>';?>
-	</div> -->
-	<div>
-	<?php foreach($error_list as $one_err):?>
-			<h3 style="color: red;"><?=$one_err;?></h3>
-	<?php endforeach; ?>
 	</div>
+	
 </body>
 </html>

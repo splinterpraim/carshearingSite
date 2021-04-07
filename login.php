@@ -1,16 +1,22 @@
 <?php
+session_start();
 $error_list = array();
 $p="n";
-/*var_dump($_POST);
-exit();*/
+$redirect = false;
+
 if($_POST["autorization"] == "Вход")
 {
-	$p="y";
-	include("db.php");
-	$p="y";
-	$basaDB = new DB();
-	$basaDB->get_request("SELECT `id_user` AS uid,`password` FROM `authorization` WHERE `login`=\"".$_POST["login"]."\";");
-	$sql_answer = $basaDB->unpacking();
+	include("config/db.php");
+	$mysqli = new mysqli($DATABASE_URL,$USER,$USER_PASSWORD,$DATABASE);
+	if($mysqli->connect_errno){
+		echo "Ошибка подключения к бд".$mysqli->connect_errno;
+		exit();
+	}
+	$res = $mysqli->query("SELECT `id_user` AS uid,`password` FROM `authorization` WHERE `login`=\"".$_POST["login"]."\";");
+
+
+	$sql_answer = $res->fetch_assoc();
+	
 	if(isset($sql_answer))
 	{
 		if($_POST["password"] == $sql_answer['password'])
@@ -27,17 +33,31 @@ if($_POST["autorization"] == "Вход")
 	{	
 		array_push($error_list, "Неверный логин");
 	}
-	
+	$mysqli->close();
+	if (count($error_list)<1){
+		$redirect = true;
+	}
 
-	unset($basaDB);
 
 }
 
 require_once('functions.php');
-$title = "Вход";
+if($redirect)
+{
+	//поставить сессию
+	header("Location: http://futucar/profile.php");
+}
+else
+{
 
 
-$page_content = renderTemplate('views/login.php',['error_list' => $error_list,'p'=>$p]); 
-$layout_content = renderTemplate('views/layout.php',['title' => $title,'content'=>(string)$page_content]);
-var_dump($layout_content);flush();
+	$title = "Авторизация";
+
+
+
+	$page_content = renderTemplate('views/login.php',['error_list' => $error_list]); 
+	$layout_content = renderTemplate('views/layout.php',['title' => $title,'content'=>(string)$page_content]);
+	print($layout_content);
+
+}
 ?>

@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +11,8 @@
 </head>
 <body>
 	<header>
-
-		<h1>Futucar</h1>
+		
+			<h1>Futucar</h1> 
 		
 	</form>
 	</header>
@@ -25,12 +26,25 @@
 			<input type="submit" name="guest_page" value="Гостевая книга">
 		</form>
 		<form style="float: right;" method="post" action="../index.php">
-			<input type="hidden" name="form" value="login">
-			<input style="" type="submit" name="login" value="Войти">
+
+			<?php if(isset($_SESSION['uid'])): ?>
+				<input type="hidden" name="form" value="exit">
+				<input style="" type="submit" name="exit" value="Выйти">
+			<?php else: ?>
+				<input type="hidden" name="form" value="login">
+				<input style="" type="submit" name="login" value="Войти">
+			<?php endif;?>
+		</form>
+
 
 	</nav>
-	
-	<div style="clear: both;">
+	<div style="clear: both;"></div>
+	<?php if($title): ?>
+		<h2><?=$title; ?></h2>
+	<?php else:?>
+		<h2>Futucar</h2>
+	<? endif; ?>
+	<div>
 		<?=$content; ?>
 	</div>
 
