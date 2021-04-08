@@ -1,4 +1,9 @@
-
+<div align="center">
+	
+	<?php if($dont_access): ?>
+		 <div>Для доступа тебе нужно войти в аккаунт</div>
+	<?php endif; ?>
+</div>
 <div style="padding-top: 100px;">
 	<form></form>
 	<div>

@@ -23,6 +23,9 @@ if($_POST["autorization"] == "Вход")
 		{	
 			
 			$_SESSION['uid'] = $sql_answer['uid'];
+			$res = $mysqli->query("SELECT `name` FROM `users` WHERE `id`=".$sql_answer['uid']);
+			$sql_answer = $res->fetch_assoc();
+			$_SESSION['name'] = $sql_answer['name'];
 		}
 		else
 		{
@@ -41,7 +44,7 @@ if($_POST["autorization"] == "Вход")
 
 }
 
-require_once('functions.php');
+
 if($redirect)
 {
 	//поставить сессию
@@ -50,12 +53,10 @@ if($redirect)
 else
 {
 
-
+	require_once('functions.php');
 	$title = "Авторизация";
-
-
-
-	$page_content = renderTemplate('views/login.php',['error_list' => $error_list]); 
+	$page_content = renderTemplate('views/login.php',['error_list' => $error_list, 'dont_access'=>$_SESSION['dont_access']]);
+	unset($_SESSION['dont_access']);
 	$layout_content = renderTemplate('views/layout.php',['title' => $title,'content'=>(string)$page_content]);
 	print($layout_content);
 

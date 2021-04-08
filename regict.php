@@ -99,6 +99,7 @@ if($Good and !$start)
 	$mysqli->query("INSERT INTO `authorization` (`id`, `id_user`, `login`, `password`) VALUES (NULL, '".$id_user."', '".$_POST['login_new']."', '".$_POST['password_new']."');");
 	$mysqli->close();
 	$_SESSION['uid'] = $id_user;
+	$_SESSION['name'] = $name;
 	$created = true;
 }
 if ($created)
