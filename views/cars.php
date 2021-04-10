@@ -1,6 +1,8 @@
+<?php session_start();?>
 
 
-<div style="padding-top: 10px; text-align: center; border: 1px solid #333; width: 35%; box-shadow: 8px 8px 5px #444; height: 30px">
+<h3>Выбор машины</h3>
+<div style="padding-top: 10px; text-align: center; border: 1px solid #333; width: 35%; box-shadow: 8px 8px 5px #444;	">
 	<form action="cars.php" method="post">
 		Город:
 		<select name="cities">
@@ -29,9 +31,10 @@
 	</div>
 	
 	<br>
-	<div align="" style="padding-left: 30px;">
+	<div align="" style="padding-left: 250px;">
 		
 		<?php foreach ($rows_of_car  as  $value): ?>
+			<div style="display:inline-block; float:left;">
 			<table  width="500" style="border: 1px solid black;">	
 			<tr>
 				<td bgcolor="#FFA500" width="20%" ><b><?=$value['brand'].' '.$value['model'];?></b></td>
@@ -54,6 +57,13 @@
 				<td colspan="2"><?=$value['location'];?></td>
 			</tr>
 			</table>
+			<div style=" margin-left: 424px;height: 30px ;width: 100px;">
+				<form method="post" action="">
+					<input type="hidden" name="id_car" value="<?=$value['id'];?>">
+					<input type="submit" name="choise_car" value="Выбрать" style="background-color: #ab5bb3;">
+				</form>
+			</div>
 			<br>
+			</div>
 		<?php endforeach; ?>
 	</div>

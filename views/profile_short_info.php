@@ -1,3 +1,4 @@
+<?php session_start();?>
 <div>
 	<?php if($display_window): ?>
 		 <div>Поздравляю ты создал аккаунт</div>
@@ -9,14 +10,12 @@
 		<?php endforeach;?>
 	</form>
 	<div>
-		<h3><?=$fulname?></h3>
-		<div>Телефон:</div>
-		<div>Уровень:</div>
-		<div>Баллы:</div>
-		<div>Тариф:</div>
-		
-		
-
+		<br>
+		<h4><?=$person['fullname']?></h4>
+		<div>Телефон: <?=$person['phone']?></div>
+		<div>Уровень: <?=$person['lname']?></div>
+		<div>Баллы: <?=$person['points']?></div>
+		<div>Тариф: <?=$person['tname']?></div>
 
 	</div>
 </div>

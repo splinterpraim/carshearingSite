@@ -13,7 +13,7 @@
 <body><!-- #0497c4 -->
 	<header style="display: block;height: 250px; background: url(img/header-bg.jpg) no-repeat 96% 88% ;">
 
-		<div style="position: fixed ;top:80px;left: 100px; margin-bottom: 0px;  color: #12b046; font-family:FreeMono, monospace; ; background-color: white; width: 300px; height: 70px;display: flex; align-items:center; justify-content: center; ">
+		<div style="position: relative;top:80px;left: 100px; margin-bottom: 0px;  color: #12b046; font-family:FreeMono, monospace; ; background-color: white; width: 300px; height: 70px;display: flex; align-items:center; justify-content: center; ">
 		
 				<h1><button style="background: transparent;border: 0; padding: 0px;margin:0px;"><img src="img/icon2.ico"></button>
 				<b>Futucar</b></h1> </div>

@@ -1,9 +1,13 @@
 <?php
-
+//DATABASE
 $DATABASE_URL = '127.0.0.1';
 $USER = 'mysql';
 $USER_PASSWORD = 'mysql';
 $DATABASE = 'carsharing';
+
+//ERRORS
+$ERROR_STYLE = "background: red;";
+$ERROR_LIST = array();
 /*
 class DB
 {

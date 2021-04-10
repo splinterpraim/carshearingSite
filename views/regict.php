@@ -1,48 +1,48 @@
-
+<div>
 	<div>
 		<form></form>
 		<form action="" method="post">
 			<table>
 				<tr>
 					<td>Имя:</td>
-					<td><input type="text" name="name" value= "<?=$name;?>"  ></td>
+					<td><input type="text" name="name" value= "<?=$old_values['name'];?>"  ></td>
 				</tr>
 				<tr>
 					<td>Фамилию:</td>
-					<td><input type="text" name="surname" value= "<?=$surname;?>" ></td>
+					<td><input type="text" name="surname" value= "<?=$old_values['surname'];?>" ></td>
 				</tr>
 				<tr>
 					<td>Отчество:</td>
-					<td><input  type="text" name="fathname" value= "<?=$fathname;?>" ></td>
+					<td><input  type="text" name="fathname" value= "<?=$old_values['fathname'];?>" ></td>
 				</tr>
 				<tr>
 					<td >Паспорт (серия/номер):</td>
-					<td><input style="<?=$check['pasport'];?>" type="text" name="pasport"  value= "<?=$pasport;?>"></td>
+					<td><input style="<?=$bad_field['passport'];?>" type="text" name="passport"  value= "<?=$old_values['passport'];?>"></td>
 				</tr>
 				<tr>
 					<td>Номер водительского<br> удостоверения:</td>
-					<td><input style="<?=$check['autopasport'];?>" type="text" name="autopasport" value="<?=$autopasport;?>" ></td>
+					<td><input style="<?=$bad_field['autopassport'];?>" type="text" name="autopassport" value="<?=$old_values['autopassport'];?>" ></td>
 				</tr>
 				<tr>
 					
 					<td>Номер кредитной карты:</td>
-					<td><input  style="<?=$check['credit_cart'];?>" type="text" name="credit_cart"  value="<?=$credit_cart;?>" ></td>
+					<td><input  style="<?=$bad_field['credit_cart'];?>" type="text" name="credit_cart"  value="<?=$old_values['credit_cart'];?>" ></td>
 				</tr>
 				<tr>
 					<td>Номер телефона:</td>
-					<td><input style="<?=$check['phone'];?>" type="text" name="phone" value="<?=$phone;?>" ></td>
+					<td><input style="<?=$bad_field['phone'];?>" type="text" name="phone" value="<?=$old_values['phone'];?>" ></td>
 				</tr>
 				<tr>
 					<td>Адрес:</td>
-					<td><input type="text" name="address" value="<?=$address;?>"></td>
+					<td><input type="text" name="address" value="<?=$old_values['address'];?>"></td>
 				</tr>
 				<tr>
 					<td>Логин:</td>
-					<td><input type="text" name="login_new" value="<?=$login_new;?>"></td>
+					<td><input   style="<?=$bad_field['login'];?>" type="text" name="login_new" value="<?=$old_values['login_new'];?>"></td>
 				</tr>
 				<tr>
 					<td>Пароль:</td>
-					<td><input type="text" name="password_new" value="<?=$password_new;?>"></td>
+					<td><input type="text" name="password_new" value="<?=$old_values['password_new'];?>"></td>
 				</tr>
 			</table>
 			<input type="submit" name="butt" value="Создать">
@@ -51,14 +51,9 @@
 	</div>
 
 
-
-	<!-- <div <?php if(($Good==false)and($start==false)){?>style="border: 4px solid #20B2AA; width: 300px; font-size: 20px;"<?php }?>>
-		<?php echo '<b>'.$errors.'<b>';?>
-	</div> -->
 	<div>
-	<?php foreach($error_list as $one_err):?>
+	<?php foreach($ERROR_LIST as $one_err):?>
 			<h3 style="color: red;"><?=$one_err;?></h3>
 	<?php endforeach; ?>
 	</div>
-</body>
-</html>
+</div>
