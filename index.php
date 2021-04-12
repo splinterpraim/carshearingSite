@@ -49,36 +49,6 @@ else
 
 
 
-echo "далеко зашел";
 
-/*
-require_once('functions.php');
-
-
-$title = "";
-
-
-
-if($_POST['main'])
-{	
-	header("Location: http://futucar/main.php");
-	$title = 'Главная';
-	$page_content = renderTemplate('main.php', ['name' => 'r']);
-}
-elseif($_POST['rent'])
-{
-	$title = 'Главная';
-	$page_content = renderTemplate('main.php', ['name' => 'r']);
-}
-
-
-
-
-$layout_content = renderTemplate('layout.php',['title' => $title,'content'=>$page_content]);
-print($layout_content);
-print($_POST['main']);
-var_dump($_REQUEST);
-
-*/
 
 ?>

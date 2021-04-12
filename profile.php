@@ -117,7 +117,7 @@ elseif($_POST['trips'])
 	}
 
 	//Выборка данных о поездках пользователя
-	$res = $mysqli->query("SELECT `trips`.`datetime_start` , `trips`.`datetime_end`, `trips`.`route`, `trips`.`coast` , `cars`.`brand`, `cars`.`model`, `cars`.`reg_number`, `cars`.`photo` FROM `trips` INNER JOIN `cars` ON `trips`.`id_cars`=`cars`.`id` WHERE `trips`.`id_users` = '".$_SESSION['uid']."'");
+	$res = $mysqli->query("SELECT `trips`.`datetime_start` , `trips`.`datetime_end`, `trips`.`route`, `trips`.`coast` , `cars`.`brand`, `cars`.`model`, `cars`.`reg_number`, `cars`.`photo` FROM `trips` INNER JOIN `cars` ON `trips`.`id_cars`=`cars`.`id` WHERE `trips`.`id_users` = '".$_SESSION['uid']."' ORDER BY `trips`.`datetime_start` DESC");
 	while($row = $res->fetch_assoc())
 	{
 		array_push($rows_of_trips, $row);

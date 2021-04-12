@@ -53,7 +53,7 @@ if($redirect)
 else
 {
 
-	require_once('functions.php');
+	require_once('function/functions.php');
 	$title = "Авторизация";
 	$page_content = renderTemplate('views/login.php',['error_list' => $error_list, 'dont_access'=>$_SESSION['dont_access']]);
 	unset($_SESSION['dont_access']);

@@ -26,7 +26,7 @@
 				</tr>
 				<tr>
 					<td bgcolor="#F4A460" colspan="2" >
-						<span style="font-family: Century Gothic;"><?=$value['datetime_start'];?></span><br>;
+						<span style="font-family: Century Gothic;"><?=$value['datetime_start'];?></span><br>
 						<span style="font-family: Tahoma;"><?=$new_value_route[0];?></span>	
 					</td>
 				</tr>
@@ -35,8 +35,8 @@
 				</tr>
 				<tr>
 					<td bgcolor="#00FA9A" colspan="2" >
-						<span style="font-family: Century Gothic;"><?=$value['datetime_end'];?></span><br>;
-						<span style="font-family: Tahoma;"><?=$new_value_route[1];?></span>;
+						<span style="font-family: Century Gothic;"><?=$value['datetime_end'];?></span><br>
+						<span style="font-family: Tahoma;"><?=$new_value_route[1];?></span>
 					</td>
 				</tr>
 				<tr>
